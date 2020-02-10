@@ -4,10 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewAdapter(list : List<MemoryData>) : RecyclerView.Adapter<RecyclerViewHolder>() {
+class RecyclerViewAdapter(list : MutableList<MemoryData>) : RecyclerView.Adapter<RecyclerViewHolder>() {
 
     //データクラスの配列を用意
-    lateinit var list:List<MemoryData>
+    var list:MutableList<MemoryData>
+
+    init {
+        this.list = list
+    }
 
     //一行文のレイアウト(RecyclerView_layout)をインフレートし、それを引数にホルダー(RecyclerViewHolder)を作成し返す
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
